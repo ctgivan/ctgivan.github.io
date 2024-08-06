@@ -1,0 +1,99 @@
+<div id="form-container" class="form-container">
+    <div class="row">
+      <div class="col">
+        <div class="form-group"></div>
+        <div class="form-group">
+          <label>Recipe Name</label>
+          <input id="form-recipe-name" type="text" class="form-control" onfocusout="smallField(this)">
+          <div class="form-group" style="">
+            <label>Image URL</label>
+            <input id="form-image-url" type="text" class="form-control" onfocusout="smallField(this)">
+          </div>
+        </div>
+        <div class="form-group" style="">
+          <label>Author Name</label>
+          <input id="form-author-name" type="text" class="form-control" onfocusout="smallField(this)">
+        </div>
+        <div class="form-group" style="">
+          <label>Prep Time</label>
+          <input id="form-prep-time" type="text" class="form-control" onfocusout="smallField(this)">
+        </div>
+        <div class="form-group" style="">
+          <label>Servings</label>
+          <input id="form-servings" type="text" class="form-control" onfocusout="smallField(this)">
+        </div>
+        <div class="form-group" style="">
+          <label>Introduction</label>
+          <textarea id="form-introduction" class="form-control" onfocusout="listField(this)"></textarea>
+        </div>
+        <div class="form-group" style="">
+          <label>Ingredients (1 per line)</label>
+          <textarea id="form-ingredients" class="form-control" onfocusout="listField(this)"></textarea>
+        </div>
+        <div class="form-group" style="">
+          <label>Instructions (numbered lists automatically detected)</label>
+          <textarea id="form-instructions" class="form-control" onfocusout="listField(this)"></textarea>
+        </div>
+        <div class="form-group" style="">
+          <label>Notes (numbered lists automatically detected)</label>
+          <textarea id="form-notes" class="form-control" onfocusout="listField(this)"></textarea>
+        </div>
+      </div>
+    </div>
+  <button id="copy-to-clipb" class="form-control" type="button" onclick="copyToClipB()">Copy source to clipboard</button>
+  </div>
+<div class="custom-recipe-block-crb">
+  <div class="crb-header">
+    <div class="crb-header-thumb">
+        <div class="thumb-border"> 
+          <img id="thumbnail" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg"></img>
+      </div>
+    </div>
+    <div class="crb-header-title">
+      <h1 id="recipe-name">Recipe</h1>
+    </div>
+    <div class="crb-header-left-column">
+      <div class="crb-author">
+        <p id="author-name" class="crb-details">Author: </p>
+      </div>
+      <div class="crb-servings">
+        <p id="servings" class="crb-details">Servings: </p>
+      </div>
+    </div>
+    <div class="crb-header-right-column">
+      <div class="crb-prep-time">
+        <p id="prep-time" class="crb-details">Prep time: </p>
+      </div>
+      <div class="crb-header-tags">
+        <p class="crb-details"></p>
+      </div>
+    </div>
+  </div>
+  <div class="crb-recipe">
+    <div id="introduction" class="crb-intro">
+      <p class="introduction"></p>
+    </div>
+    <div id="ingredients" class="crb-ingredients">
+      <h2> Ingredients </h2>
+      <label class="container">
+        <input type="checkbox" checked="checked">
+        <span class="checkmark"></span>
+      </label>
+      <label class="switch">
+        <input id="cook-mode" type="checkbox" data-status="off">
+        <span class="slider round"></span>
+      </label>
+      <label> Toggle cooking mode </label>
+    </div>
+    <div class="crb-instructions">
+      <h2> Instructions </h2>
+      <div id="instructions"> <ol><li></li></ol></div>
+    </div>
+    <div class="crb-notes"> <div id="notes"> <ol><li></li></ol></div></div>
+  </div>
+  <div class="crb-footer">
+    <div class="crb-footer-tags"></div>
+    <div class="crb-nutrition"></div>
+    <div class="crb-footer-gutter"></div>
+  </div>
+</div>
