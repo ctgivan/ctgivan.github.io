@@ -220,6 +220,7 @@
       grid-template-areas:
         "crb-intro"
         "crb-ingredients"
+        "crb-cook-mode-container"
         "crb-instructions"
         "crb-notes";
       grid-area: crb-recipe;
@@ -235,6 +236,10 @@
 
     .crb-ingredients {
       grid-area: crb-ingredients;
+    }
+
+    .crb-cook-mode-container {
+      grid-area: crb-cook-mode-container
     }
 
     .crb-instructions {
@@ -483,13 +488,13 @@
           <input type="checkbox" checked="checked">
           <span class="checkmark"></span>
         </label>
-        <div id="cook-mode-container">
-          <label class="switch">
-            <input id="cook-mode" type="checkbox" data-status="off">
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <label> Toggle cooking mode </label>
+      </div>
+      <div id="cook-mode-container" class="crb-cook-mode-container">
+        <label class="switch">
+          <input id="cook-mode" type="checkbox" data-status="off">
+          <span class="slider round"></span>
+          Toggle cooking mode
+        </label>
       </div>
       <div class="crb-instructions">
         <h2> Instructions </h2>
