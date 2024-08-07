@@ -2,6 +2,7 @@
 <html>
 
 <head>
+  <script src="script.js"></script>
   <style>
     * {
       font-family: "Freight Text Pro", Garamond, Times, serif;
@@ -482,10 +483,12 @@
           <input type="checkbox" checked="checked">
           <span class="checkmark"></span>
         </label>
-        <label class="switch">
-          <input id="cook-mode" type="checkbox" data-status="off">
-          <span class="slider round"></span>
-        </label>
+        <div id="cook-mode-container">
+          <label class="switch">
+            <input id="cook-mode" type="checkbox" data-status="off">
+            <span class="slider round"></span>
+          </label>
+        </div>
         <label> Toggle cooking mode </label>
       </div>
       <div class="crb-instructions">
