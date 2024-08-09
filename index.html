@@ -483,9 +483,9 @@
       })
 
       const handleVisibilityChange = function() {
-        if (wakeLock !== null && document.visibilityState === 'visible') {
-          requestWakeLock();
-        }
+        if (wakeLock !== null)
+          if (document.visibilityState === 'visible')
+            requestWakeLock();
       }
     }
   }
