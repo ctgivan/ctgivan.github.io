@@ -422,11 +422,9 @@
     const wakeButton = document.getElementById("cook-mode");
 
     // change button and status if wakelock becomes aquired or is released
-    const changeUI = (status = 'acquired') => {
+    const changeUI = function (status = 'acquired') {
       const acquired = status === 'acquired' ? true : false;
       wakeButton.dataset.status = acquired ? 'on' : 'off';
-      // wakeButton.textContent = `Turn Wake Lock ${acquired ? 'OFF' : 'ON'}`;
-      // statusElem.textContent = `Wake Lock ${acquired ? 'is active!' : 'has been released.'}`;
     }
 
     // test support
@@ -444,8 +442,7 @@
       // create a reference for the wake lock
       let wakeLock = null;
 
-      // create an async function to request a wake lock
-      const requestWakeLock = async () => {
+      const requestWakeLock = async function() {
         try {
           wakeLock = await navigator.wakeLock.request('screen');
 
@@ -456,7 +453,7 @@
           wakeLock.onrelease = function(ev) {
             console.log(ev);
           }
-          wakeLock.addEventListener('release', () => {
+          wakeLock.addEventListener('release', function() {
             // if wake lock is released alter the button accordingly
             changeUI('released');
           });
@@ -468,10 +465,10 @@
           // statusElem.textContent = `${err.name}, ${err.message}`;
 
         }
-      } // requestWakeLock()
+      }
 
       // if we click our button
-      wakeButton.addEventListener('click', () => {
+      wakeButton.addEventListener('click', function() {
         // if wakelock is off request it
         if (wakeButton.dataset.status === 'off') {
           console.log("requesting wake lock");
@@ -479,13 +476,13 @@
         } else { // if it's on release it
           console.log("releasing wake lock");
           wakeLock.release()
-          .then(() => {
+          .then( function() {
             wakeLock = null;
           })
         }
       })
 
-      const handleVisibilityChange = () => {
+      const handleVisibilityChange = function() {
         if (wakeLock !== null && document.visibilityState === 'visible') {
           requestWakeLock();
         }
