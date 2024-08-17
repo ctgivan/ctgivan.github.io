@@ -60,6 +60,7 @@
       text-align: left;
       margin-top: 10px;
       margin-left: 25px;
+      margin-bottom: 10px;
     }
 
     .crb-intro {
@@ -200,16 +201,25 @@
       grid-auto-flow: row;
       grid-template-areas:
         "crb-prep-time"
-        "crb-header-tags";
+        "crb-cook-time"
+        "crb-total-time";
       grid-area: crb-header-right-column;
     }
 
     .crb-prep-time {
-      grid-area: crb-prep-time;
+      grid-column: 1 / span 1;
     }
 
-    .crb-header-tags {
-      grid-area: crb-header-tags;
+    .crb-total-time {
+      /* display: flex; */
+      /* align-items: center; */
+      /* grid-column: 2 / span 1; */
+      /* grid-row: 1 / span 2; */
+      grid-area: crb-total-time;
+    }
+
+    .crb-cook-time {
+      grid-column: 1 / span 1;
     }
 
     .crb-recipe {
@@ -510,12 +520,20 @@
           <input id="form-author-name" type="text" class="form-control" onfocusout="smallField(this)">
         </div>
         <div class="form-group" style="">
+          <label>Servings</label>
+          <input id="form-servings" type="text" class="form-control" onfocusout="smallField(this)">
+        </div>
+        <div class="form-group" style="">
           <label>Prep Time</label>
           <input id="form-prep-time" type="text" class="form-control" onfocusout="smallField(this)">
         </div>
         <div class="form-group" style="">
-          <label>Servings</label>
-          <input id="form-servings" type="text" class="form-control" onfocusout="smallField(this)">
+          <label>Cook Time</label>
+          <input id="form-cook-time" type="text" class="form-control" onfocusout="smallField(this)">
+        </div>
+        <div class="form-group" style="">
+          <label>Total Time</label>
+          <input id="form-total-time" type="text" class="form-control" onfocusout="smallField(this)">
         </div>
         <div class="form-group" style="">
           <label>Introduction</label>
@@ -560,8 +578,11 @@
         <div class="crb-prep-time">
           <p id="prep-time" class="crb-details">Prep time: </p>
         </div>
-        <div class="crb-header-tags">
-          <p class="crb-details"></p>
+        <div class="crb-total-time">
+          <p id="total-time" class="crb-details">Total time: </p>
+        </div>
+        <div class="crb-cook-time">
+          <p id="cook-time" class="crb-details">Cook time: </p>
         </div>
       </div>
     </div>

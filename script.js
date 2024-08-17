@@ -17,16 +17,18 @@ function listField(e) {
 
   if (e.value.includes("\n") && name == "ingredients") {
     // point.style.display = "block";
-    var ingredients = e.value.match(/(^\S*.*\b)/gm);
+    var ingredients = e.value.match(/(^\S*.*)/gm);
         for (i in ingredients) {
+          console.log("Adding " + ingredients[i])
           var clone = point.cloneNode(true);
           parent.appendChild(clone);
           clone.innerHTML += ingredients[i].trim();
         }
   } else if (e.value.includes("\n") &&  e.value.includes("1.") && e.value.includes("2.")) {
     // point.style.display = "block";
-    var not_ingredients = e.value.match(/(^\S*.*\b)/gm);
+    var not_ingredients = e.value.match(/(^\S*.*)/gm);
     for (i in not_ingredients) {
+      console.log("Adding " + ingredients[i])
       var clone = point.cloneNode(true);
       not_ingredients[i] = not_ingredients[i].substring(3);
       parent.appendChild(clone);
