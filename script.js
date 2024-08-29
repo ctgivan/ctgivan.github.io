@@ -1,11 +1,32 @@
 function smallField(e) {
   const popOffExtra = "form-".length;
   const name = e.id.substring(popOffExtra);
+  var tag = "";
+
+//no the most efficient, but it works
+  switch (name) {
+    case "author-name":
+    tag = "Author: ";
+    break;
+    case "servings":
+    tag = "Servings: ";
+    break;
+    case "prep-time":
+    tag = "Prep Time: ";
+    break;
+    case "cook-time":
+    tag = "Cook Time: ";
+    break;
+    case "total-time":
+    tag = "Total Time: "
+    break;
+  }
 
   if (name == "image-url") {
+    if (isValidHttpUrl(e.value))
     document.getElementById("thumbnail").src = e.value;
   } else {
-    document.getElementById(name).innerHTML = e.value;
+    document.getElementById(name).innerHTML = tag + e.value;
   }
 }
 
@@ -53,6 +74,19 @@ function listField(e) {
   }
 }
 
+//directly from user "Pavlo" on StackOverflow: https://stackoverflow.com/questions/5717093/check-if-a-javascript-string-is-a-url
+function isValidHttpUrl(string) {
+  let url;
+
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+
+  return url.protocol === "http:" || url.protocol === "https:";
+}
+
   // reaquireCheck.addEventListener('change', () => {
   //   if (reaquireCheck.checked) {
   //     document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -63,7 +97,7 @@ function listField(e) {
 
 function copyToClipB() {
   var style = document.getElementsByTagName("style")[0];
-  var script = document.getElementById("cook-mode-script");
+  var script = document.getElementById("on-load-items");
   var body = document.getElementsByClassName("custom-recipe-block-crb")[0];
   var generatedSource = new XMLSerializer().serializeToString(style) + new XMLSerializer().serializeToString(script) + new XMLSerializer().serializeToString(body);
   navigator.clipboard.writeText(generatedSource);

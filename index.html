@@ -26,6 +26,7 @@
       font-size: 40px;
       color: white;
       text-align: center;
+      margin-top: 5%
     }
 
     .crb-details {
@@ -155,6 +156,11 @@
 
     .crb-header-thumb img {
       border-radius: 50%;
+      max-width: 150px;
+      min-width: 30px;
+      height: auto;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
     }
 
     .thumb-border {
@@ -421,10 +427,11 @@
       border-radius: 50%;
     }
   </style>
-  <script id="cook-mode-script">
+  <script id="on-load-items">
   document.onreadystatechange = function () {
     if (document.readyState == "complete") {
       makeCookModeToggle();
+      grabRecipeThumb();
     }
   }
 
@@ -496,6 +503,22 @@
         if (wakeLock !== null)
           if (document.visibilityState === 'visible')
             requestWakeLock();
+      }
+    }
+  }
+
+  function grabRecipeThumb() {
+    if (document.getElementById("thumbnail").src == "https://www.layoutit.com/img/sports-q-c-140-140-3.jpg" || document.getElementById("thumbnail").src == null) {
+      var recipeBlock = document.getElementsByClassName("custom-recipe-block-crb")[0].parentElement;
+      var recipeDoc = recipeBlock.parentElement;
+      var codeBlock = recipeDoc.parentElement;
+      var imageWrapper = recipeDoc.previousElementSibling;
+      var image = imageWrapper.getElementsByClassName("sqs-image-shape-container-element")[0].firstElementChild;
+
+      if (image.tagName == "IMG") {
+        document.getElementById("thumbnail").src = image.src;
+        recipeBlock.style.margin = "10% 0 0 0";
+        imageWrapper.style.display = "none";
       }
     }
   }
